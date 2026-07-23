@@ -1,2 +1,93 @@
-# DataScience-Fundamentals-Activity1
-Repository for the first practical assignment of the Fundamentals of Data Science course at EAFIT University. This project focuses on data collection, quality assessment, cleaning, descriptive analysis, and transforming raw data into meaningful business insights using Python and Pandas.
+# Taller Práctico 01 — [Nombre del equipo]
+
+- **Curso:** Fundamentos en Ciencia de Datos — Maestría en Ciencia de Datos y Analítica, EAFIT
+- **Conjunto de datos elegido:** C - Movilidad
+-**Fecha límite de entrega:** Lunes 27 de julio de 2026 23:50 hrs
+- **Fecha de entrega real:** [dd/mm/aaaa]
+
+**Integrantes del equipo:**
+
+| Nombre completo | Cédula         |
+| --------------- | -------------- |
+| Juan Felipe Restrepo | 1027740136 |
+| Manuela Castaño | [N° de cédula] |
+| Juan Esteban García | [N° de cédula] |
+
+---
+
+## 1. Resumen ejecutivo (máx. 8 líneas)
+
+- **Pregunta:** ¿En qué corredores y horarios se debe pilotear semaforización inteligente?
+- **Descubrimientos:** 
+- **Conclusiones:** 
+> Escriba aquí, en lenguaje para un gerente no técnico, cuál era la pregunta de negocio,
+> qué encontraron y cuál es la recomendación final. Esta sección se lee primero: debe
+> poder entenderse sin abrir el notebook.
+
+## 2. Pregunta de negocio
+
+- **Pregunta ancla del conjunto de datos:** ¿En qué corredores y horarios se debe pilotear semaforización inteligente?
+- **Pregunta específica que su equipo decidió responder:** [reformúlenla en términos
+  de probabilidad/decisión, no de "cuánto", siguiendo el ejemplo del Taller de Decisión
+  de la Sesión 1]
+
+## 3. Estructura del repositorio
+
+```
+.
+├── README.md
+├── data/
+│   ├── raw/                  # datos originales (sin modificar)
+│   └── processed/            # datos ya limpios, generados por el notebook
+├── notebooks/
+│   └── taller_practico_01_analisis.ipynb
+├── src/                      # funciones auxiliares (opcional)
+├── results/
+│   ├── figuras/
+│   └── tabla_diagnostico_gigo.csv
+└── docs/
+    └── declaracion_uso_IA.md
+```
+
+## 4. Cómo reproducir el análisis (Solamente vía terminal)
+
+```bash
+# 1. Clonar el repositorio
+git clone <url-del-repo>
+cd <nombre-repo>
+
+# 2. Crear entorno e instalar dependencias
+pip install -r requirements.txt
+
+# 3. Ejecutar el notebook de inicio a fin
+jupyter notebook notebooks/taller_practico_01_analisis.ipynb
+```
+
+## 5. Principales hallazgos
+
+| #   | Hallazgo | Evidencia (tabla/figura) |
+| --- | -------- | ------------------------ |
+| 1   |          |                          |
+| 2   |          |                          |
+| 3   |          |                          |
+
+## 6. Problemas de calidad de datos encontrados (resumen GIGO)
+
+| Problema | Estrategia de corrección | Justificación |
+| -------- | ------------------------ | ------------- |
+|          |                          |               |
+
+*(Tabla completa en `results/tabla_diagnostico_gigo.csv`)*
+
+## 7. Decisión recomendada
+
+- **Recomendación:** [acción concreta y accionable]
+- **Costo de un Falso Positivo:** [...]
+- **Costo de un Falso Negativo:** [...]
+- **Limitación principal de los datos que persiste tras la limpieza:** [...]
+
+## 8. Declaración de uso de Inteligencia Artificial
+
+Ver `docs/declaracion_uso_IA.md`. Resumen: [1-2 líneas, ej. "Se usó IA generativa para
+sintaxis de pandas en la Tarea 3; la elección de estrategia de imputación y la
+interpretación de resultados fue realizada y validada por el equipo."]
