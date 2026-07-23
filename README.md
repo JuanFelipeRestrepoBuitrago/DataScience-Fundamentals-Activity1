@@ -49,19 +49,29 @@
     └── declaracion_uso_IA.md
 ```
 
-## 4. Cómo reproducir el análisis (Solamente vía terminal)
+## 4. Cómo reproducir el análisis (vía terminal)
 
 ```bash
 # 1. Clonar el repositorio
-git clone <url-del-repo>
-cd <nombre-repo>
+git clone <url-del-repositorio>
+cd <nombre-del-repositorio>
 
-# 2. Crear entorno e instalar dependencias
+# 2. Crear un entorno virtual
+python -m venv .venv
+
+# 3. Activar el entorno
+
+# Linux / macOS
+source .venv/bin/activate
+
+# Windows
+.venv\Scripts\activate
+
+# 4. Instalar dependencias
 pip install -r requirements.txt
 
-# 3. Ejecutar el notebook de inicio a fin
+# 5. Iniciar Jupyter Notebook
 jupyter notebook notebooks/taller_practico_01_analisis.ipynb
-```
 
 ## 5. Principales hallazgos
 
