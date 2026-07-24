@@ -49,8 +49,8 @@
 
 ```bash
 # 1. Clonar el repositorio
-git clone <url-del-repositorio>
-cd <nombre-del-repositorio>
+git clone https://github.com/JuanFelipeRestrepoBuitrago/DataScience-Fundamentals-Activity1.git
+cd DataScience-Fundamentals-Activity1
 
 # 2. Crear un entorno virtual
 python -m venv .venv
