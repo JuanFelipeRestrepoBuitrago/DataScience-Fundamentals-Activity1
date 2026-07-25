@@ -102,16 +102,16 @@ jupyter notebook notebooks/taller_practico_01_analisis.ipynb
 
 | Problema | Estrategia de corrección | Justificación |
 | -------- | ------------------------ | ------------- |
-| Valores nulos en `conteo_vehiculos` | Imputación con la mediana por `sensor_id`. | La mediana es robusta frente a valores atípicos y preserva el comportamiento característico de cada sensor. |
+| Valores nulos en `conteo_vehiculos` | Imputación con la mediana por `sensor_id`. | La mediana nos protege frente a valores atípicos y mantiene el comportamiento de cada sensor. |
 | Valores nulos en `temperatura_c` | Imputación con la mediana por `sensor_id`. | Permite conservar la distribución de la temperatura de cada sensor sin verse afectada por valores extremos. |
-| Valores nulos en `condicion_clima` | Imputación con la moda por `sensor_id`. | La condición climática más frecuente por sensor representa la mejor aproximación cuando no existe información adicional. |
+| Valores nulos en `condicion_clima` | Imputación con la moda por `sensor_id`. | La condición climática más frecuente por sensor representa la mejor aproximación, porque es lo más común en cada zona para una variable categórica. |
 | Duplicados exactos | Eliminación de registros idénticos. | Los registros repetidos no aportan información nueva y pueden sesgar los resultados del análisis. |
-| Duplicados de negocio (`sensor_id` + `timestamp`) | Eliminación de los registros involucrados. | Al existir diferencias en el conteo de vehículos para el mismo sensor y momento, no fue posible determinar cuál registro era el correcto. |
-| Categorías inconsistentes en `condicion_clima` | Estandarización mediante un diccionario de mapeo. | Se unificaron diferencias de mayúsculas, minúsculas y sinónimos en las categorías `Soleado`, `Nublado` y `Lluvia`. |
-| Formatos heterogéneos de fecha y hora | Conversión a un único formato `datetime`. | Se normalizaron los diferentes formatos de fecha para facilitar el análisis temporal y garantizar consistencia. |
-| Conteos negativos de vehículos | Eliminación de registros. | Un conteo negativo representa un valor físicamente imposible y corresponde a un error de captura o medición. |
-| Coordenadas geográficas invertidas | Intercambio de los valores de latitud y longitud. | Se recuperaron registros válidos corrigiendo un error evidente de georreferenciación.  |
-| Valores atípicos en `conteo_vehiculos` | Eliminación mediante el criterio del rango intercuartílico (IQR). | Se eliminaron únicamente los valores extremos de la variable de interés para reducir el impacto de posibles errores de medición. |
+| Duplicados de negocio (`sensor_id` + `timestamp`) | Eliminación de los registros involucrados. | Al existir diferencias en el conteo de vehículos para el mismo sensor y momento, no fue posible determinar cuál registro era el correcto. Adicionalmente, fueron eliminados solo 14 registros, lo cual no es una cantidad de registros tan importante para considerar otro método. |
+| Categorías inconsistentes en `condicion_clima` | Estandarización mediante un diccionario de mapeo. | Se unificaron diferencias de mayúsculas, minúsculas y sinónimos en las categorías `Soleado`, `Nublado` y `Lluvia`. Se uso un diccionario porque era la mejor manera de juntar los sinónimos de cada categoría en una sola palabra. |
+| Formatos heterogéneos de fecha y hora | Conversión a un único formato `datetime`. | Se normalizaron los diferentes formatos de fecha para facilitar el análisis temporal y garantizar consistencia. La función implementada fue generada con IA. |
+| Conteos negativos de vehículos | Eliminación de registros. | Un conteo negativo es un valor físicamente imposible y corresponde a un error de captura o medición, por lo que optamos por eliminarlo. |
+| Coordenadas geográficas invertidas | Intercambio de los valores de latitud y longitud. | Se evidencio que los valores de longitud y latitud estaban invertidos por lo que se realizo dicho intercambio.  |
+| Valores atípicos en `conteo_vehiculos` | Eliminación mediante el criterio del rango intercuartílico (IQR). | Se eliminaron únicamente los valores extremos para reducir el impacto de posibles errores de medición y tener mejor visibilidad en los histogramas. |
 
 *El diagnóstico completo, los métodos de detección y las evidencias de cada problema se encuentran documentados en el notebook.*
 

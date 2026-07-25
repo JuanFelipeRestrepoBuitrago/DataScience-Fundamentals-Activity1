@@ -1,6 +1,6 @@
 ## Declaración de uso de Inteligencia Artificial
 
-Durante el desarrollo de este taller se utilizó ChatGPT (OpenAI) como herramienta de apoyo técnico para la generación y optimización de fragmentos de código en Python, la implementación de funciones de limpieza y validación de datos, y la resolución de dudas relacionadas con el uso de la librería Pandas y las buenas prácticas en Ciencia de Datos.
+Durante el desarrollo de este taller se utilizó ChatGPT (OpenAI) como herramienta de apoyo técnico para la generación y optimización de fragmentos de código en Python, la implementación de funciones de limpieza y validación de datos, y la resolución de dudas relacionadas con el uso de la librería Pandas.
 
 La herramienta también se empleó como apoyo para la estandarización de formatos de fecha, la construcción de funciones de detección de problemas de calidad de datos (valores nulos, duplicados, inconsistencias categóricas, valores fuera de rango y validaciones geográficas) y la generación de propuestas de implementación en código.
 
