@@ -1,129 +1,129 @@
-# Taller Práctico 01 — [Nombre del equipo]
+# Taller Práctico 01 — Equipo Movilidad Urbana
 
 - **Curso:** Fundamentos en Ciencia de Datos — Maestría en Ciencia de Datos y Analítica, EAFIT
-- **Conjunto de datos elegido:** C - Movilidad
--**Fecha límite de entrega:** Lunes 27 de julio de 2026 23:50 hrs
-- **Fecha de entrega real:** [dd/mm/aaaa]
+- **Conjunto de datos elegido:** C — Movilidad urbana
+- **Fecha límite de entrega:** lunes 27 de julio de 2026, 23:50
+- **Fecha de entrega:** 25 de julio de 2026
 
-**Integrantes del equipo:**
+## Integrantes
 
-| Nombre completo | Cédula   |
-| --------------- | -------------- |
+| Nombre completo | Cédula |
+|---|---:|
 | Juan Felipe Restrepo | 1027740136 |
-| Manuela Castaño | [N° de cédula] |
-| Juan Esteban García | [N° de cédula] |
+| Manuela Castaño | Por confirmar |
+| Juan Esteban García | Por confirmar |
 
----
+## 1. Resumen ejecutivo
 
-## 1. Resumen ejecutivo (máx. 8 líneas)
-
-> Escriba aquí, en lenguaje para un gerente no técnico, cuál era la pregunta de negocio,
-> qué encontraron y cuál es la recomendación final. Esta sección se lee primero: debe
-> poder entenderse sin abrir el notebook.
+Se analizaron 1.424 lecturas depuradas de seis sensores de movilidad para identificar dónde conviene probar semaforización inteligente. El tráfico alto se definió como superar 34 vehículos por intervalo. La probabilidad observada de superar ese umbral fue 72,59 % en las franjas 06:00–08:00 y 16:00–18:00, frente a 0 % en el resto de horarios del periodo analizado. Av. Regional alcanzó 90 % a las 18:00 y Av. Oriental 85 % a las 08:00. Se recomienda iniciar allí un piloto reversible, con horarios de control y medición de tiempos de viaje, colas y efectos sobre vías transversales.
 
 ## 2. Pregunta de negocio
 
-- **Pregunta ancla del conjunto de datos:** ¿En qué corredores y horarios se debe pilotear semaforización inteligente?
-- **Pregunta específica que su equipo decidió responder:** [reformúlenla en términos
-  de probabilidad/decisión, no de "cuánto", siguiendo el ejemplo del Taller de Decisión
-  de la Sesión 1]
+- **Pregunta ancla:** ¿En qué corredores y horarios se debe pilotear semaforización inteligente?
+- **Pregunta específica:** ¿En qué corredores y franjas horarias es mayor la probabilidad de observar un conteo superior al tercer cuartil de los datos depurados y, por tanto, dónde conviene iniciar un piloto de semaforización inteligente?
+- **Evento de decisión:** tráfico alto = más de 34 vehículos por intervalo.
 
 ## 3. Estructura del repositorio
 
-```
+```text
 .
 ├── README.md
+├── requirements.txt
 ├── data/
-│   ├── raw/                  # datos originales (sin modificar)
-│   └── processed/            # datos ya limpios, generados por el notebook
+│   ├── raw/
+│   │   ├── movilidad_sensores_LIMPIO.csv
+│   │   ├── movilidad_sensores_CONTAMINADO.csv
+│   │   └── clima_api_log.json
+│   └── processed/
+│       └── contaminado_transformado.csv
 ├── notebooks/
 │   └── taller_practico_01_analisis.ipynb
-├── src/                      # funciones auxiliares (opcional)
 ├── results/
-│   └── figuras/
+│   ├── figuras/
+│   └── tabla_diagnostico_gigo.csv
+├── taller_practico/
+│   └── Taller_Practico_01.tex
 └── docs/
     └── declaracion_uso_IA.md
 ```
 
-## 4. Cómo reproducir el análisis (vía terminal)
+Las respuestas del documento de tres partes se encuentran al final del notebook, en la sección `## Taller Práctico 01 — Respuestas`. El archivo `.tex` original se conserva como referencia del enunciado, siguiendo la opción Markdown permitida por la guía.
+
+## 4. Cómo reproducir el análisis
+
+### Terminal
 
 ```bash
-# 1. Clonar el repositorio
 git clone https://github.com/JuanFelipeRestrepoBuitrago/DataScience-Fundamentals-Activity1.git
 cd DataScience-Fundamentals-Activity1
 
-# 2. Crear un entorno virtual
 python -m venv .venv
+```
 
-# 3. Activar el entorno
+Activar el entorno:
 
+```bash
 # Linux / macOS
 source .venv/bin/activate
 
-# Windows
-.venv\Scripts\activate
+# Windows PowerShell
+.\.venv\Scripts\Activate.ps1
+```
 
-# 4. Instalar dependencias
-pip install -r requirements.txt
+Instalar las dependencias y abrir el notebook:
 
-# 5. Iniciar Jupyter Notebook
+```bash
+python -m pip install -r requirements.txt
 jupyter notebook notebooks/taller_practico_01_analisis.ipynb
 ```
-## 4.1. Cómo reproducir el análisis en Google Colab
 
-1. Abrir el notebook `taller_practico_01_analisis.ipynb` en Google Colab.
+Ejecute todas las celdas en orden. El notebook genera de forma reproducible:
 
-2. En los archivos de colab agregar 2 carpetas o directorios: `data/raw`.
+- `data/processed/contaminado_transformado.csv`
+- `results/tabla_diagnostico_gigo.csv`
+- Las visualizaciones finales en `results/figuras/`
 
-3. Cargar los archivos datasets desde el equipo local que están en `data/raw` del repositorio en la carpeta de colab creada `data/raw`:
-  - `movilidad_sensores_LIMPIO.csv`
-  - `movilidad_sensores_CONTAMINADO.csv`
-  - `clima_api_log.json`
+### Google Colab
 
-4. Ejecutar las celdas del notebook en orden, de principio a fin, utilizando **Runtime → Run all** o ejecutándolas una a una.
+1. Subir el notebook y crear la ruta `data/raw/`.
+2. Cargar en esa ruta los tres archivos originales de `data/raw/`.
+3. Ejecutar las celdas en orden mediante **Runtime → Run all**.
+4. Descargar los archivos generados desde `data/processed/` y `results/`.
 
-5. Al finalizar la limpieza de datos, el notebook generará automáticamente el archivo:
-
-  ```
-  contaminado_transformado.csv
-  ```
-
-  Este archivo corresponde al conjunto de datos limpio y listo para ser utilizado en las siguientes etapas del análisis.
+El código contempla tanto la ejecución desde la raíz del proyecto como desde el directorio `notebooks/`.
 
 ## 5. Principales hallazgos
 
-| #   | Hallazgo | Evidencia (tabla/figura) |
-| --- | -------- | ------------------------ |
-| 1   |          |                          |
-| 2   |          |                          |
-| 3   |          |                          |
+| # | Hallazgo | Evidencia |
+|---:|---|---|
+| 1 | Los conteos más altos se concentran entre 06:00–08:00 y 16:00–18:00; en esas franjas la probabilidad de superar 34 vehículos es 72,59 %. | `results/figuras/trafico-promedio-por-hora.png` y tabla de decisión del notebook |
+| 2 | Av. Regional a las 18:00 presenta la mayor probabilidad observada de tráfico alto: 90 % (18 de 20 lecturas). | Tabla “Combinaciones corredor–hora” del punto 5 |
+| 3 | Los promedios por sensor son cercanos; la variación temporal es más relevante que la diferencia del promedio global entre corredores. | `results/figuras/mapa-sensores-trafico-promedio.png` |
 
-## 6. Problemas de calidad de datos encontrados (resumen GIGO)
+## 6. Problemas de calidad encontrados
 
 | Problema | Estrategia de corrección | Justificación |
-| -------- | ------------------------ | ------------- |
-| Valores nulos en `conteo_vehiculos` | Imputación con la mediana por `sensor_id`. | La mediana nos protege frente a valores atípicos y mantiene el comportamiento de cada sensor. |
-| Valores nulos en `temperatura_c` | Imputación con la mediana por `sensor_id`. | Permite conservar la distribución de la temperatura de cada sensor sin verse afectada por valores extremos. |
-| Valores nulos en `condicion_clima` | Imputación con la moda por `sensor_id`. | La condición climática más frecuente por sensor representa la mejor aproximación, porque es lo más común en cada zona para una variable categórica. |
-| Duplicados exactos | Eliminación de registros idénticos. | Los registros repetidos no aportan información nueva y pueden sesgar los resultados del análisis. |
-| Duplicados de negocio (`sensor_id` + `timestamp`) | Eliminación de los registros involucrados. | Al existir diferencias en el conteo de vehículos para el mismo sensor y momento, no fue posible determinar cuál registro era el correcto. Adicionalmente, fueron eliminados solo 14 registros, lo cual no es una cantidad de registros tan importante para considerar otro método. |
-| Categorías inconsistentes en `condicion_clima` | Estandarización mediante un diccionario de mapeo. | Se unificaron diferencias de mayúsculas, minúsculas y sinónimos en las categorías `Soleado`, `Nublado` y `Lluvia`. Se uso un diccionario porque era la mejor manera de juntar los sinónimos de cada categoría en una sola palabra. |
-| Formatos heterogéneos de fecha y hora | Conversión a un único formato `datetime`. | Se normalizaron los diferentes formatos de fecha para facilitar el análisis temporal y garantizar consistencia. La función implementada fue generada con IA. |
-| Conteos negativos de vehículos | Eliminación de registros. | Un conteo negativo es un valor físicamente imposible y corresponde a un error de captura o medición, por lo que optamos por eliminarlo. |
-| Coordenadas geográficas invertidas | Intercambio de los valores de latitud y longitud. | Se evidencio que los valores de longitud y latitud estaban invertidos por lo que se realizo dicho intercambio.  |
-| Valores atípicos en `conteo_vehiculos` | Eliminación mediante el criterio del rango intercuartílico (IQR). | Se eliminaron únicamente los valores extremos para reducir el impacto de posibles errores de medición y tener mejor visibilidad en los histogramas. |
+|---|---|---|
+| Nulos en `conteo_vehiculos` | Mediana por `sensor_id` | Conserva el comportamiento típico de cada sensor y es robusta frente a extremos. |
+| Nulos en `temperatura_c` | Mediana por `sensor_id` | Evita que sensores con distribuciones distintas compartan una imputación global. |
+| Nulos en `condicion_clima` | Moda por `sensor_id` | Es una variable nominal y la categoría más frecuente es una imputación trazable. |
+| Duplicados exactos | Conservar una copia | No aportan información nueva y duplican el peso del evento. |
+| Duplicados de negocio | Validación con `sensor_id` + `timestamp` | Un sensor debe producir una sola lectura por instante. La validación se repite después de normalizar fechas. |
+| Categorías climáticas inconsistentes | Diccionario de mapeo | Unifica mayúsculas, minúsculas y sinónimos observados. |
+| Fechas heterogéneas | Conversión explícita de formatos | Permite analizar horarios sin descartar automáticamente los 90 registros afectados. |
+| Conteos negativos | Eliminación | Son físicamente imposibles y no pueden reconstruirse sin inventar información. |
+| Valores `99999` | Eliminación como código centinela | Los cuatro extremos comparten exactamente el mismo valor y son incompatibles con la escala del proceso. |
+| Coordenadas invertidas | Intercambio condicionado por rangos | Solo se corrigen cuando cada coordenada encaja inequívocamente en el rango opuesto de Medellín. |
 
-*El diagnóstico completo, los métodos de detección y las evidencias de cada problema se encuentran documentados en el notebook.*
+El detalle reproducible se exporta en `results/tabla_diagnostico_gigo.csv`.
 
 ## 7. Decisión recomendada
 
-- **Recomendación:** [acción concreta y accionable]
-- **Costo de un Falso Positivo:** [...]
-- **Costo de un Falso Negativo:** [...]
-- **Limitación principal de los datos que persiste tras la limpieza:** [...]
+- **Recomendación:** iniciar un piloto controlado en Av. Regional durante 16:00–18:00 y en Av. Oriental durante 06:00–08:00. Comparar con días u horarios de control antes de ampliarlo.
+- **Falso Positivo:** invertir y modificar ciclos donde no existe congestión persistente, aumentando esperas en vías transversales o cruces peatonales.
+- **Falso Negativo:** no intervenir una franja realmente congestionada, manteniendo demoras, consumo de combustible, emisiones y riesgo de incidentes.
+- **Limitación principal:** la muestra cubre seis sensores y veinte días, con lecturas cada dos horas; no contiene tiempos de viaje, longitud de colas, incidentes ni ciclos semafóricos. Las probabilidades describen el periodo observado y no demuestran causalidad.
 
-## 8. Declaración de uso de Inteligencia Artificial
+## 8. Uso de Inteligencia Artificial
 
-Ver `docs/declaracion_uso_IA.md`. Resumen: [1-2 líneas, ej. "Se usó IA generativa para
-sintaxis de pandas en la Tarea 3; la elección de estrategia de imputación y la
-interpretación de resultados fue realizada y validada por el equipo."]
+Se utilizó ChatGPT (OpenAI) como apoyo para estructurar código de limpieza, normalización de fechas, validaciones, agregaciones, visualizaciones y revisión de redacción. El equipo definió las reglas de negocio, ejecutó el notebook completo y validó las cifras y conclusiones. La declaración ampliada se encuentra en `docs/declaracion_uso_IA.md`.

@@ -1,0 +1,8 @@
+problema,columnas,deteccion,correccion
+Valores nulos,conteo_vehiculos; temperatura_c; condicion_clima,isna().sum(),Mediana por sensor para numéricas y moda por sensor para clima
+Duplicados exactos,Todas,duplicated(),Conservar una sola copia
+Duplicados de negocio,sensor_id; timestamp,"duplicated(subset=['sensor_id', 'timestamp'])",Eliminar conflictos sin fuente para decidir el registro correcto
+Categorías inconsistentes,condicion_clima,unique(); value_counts(),"Mapeo explícito a Soleado, Nublado y Lluvia"
+Fechas heterogéneas,timestamp,pd.to_datetime(errors='coerce'),Conversión explícita de los formatos observados
+Conteos imposibles,conteo_vehiculos,Regla de negocio < 0 y revisión de valores 99999,Eliminar negativos y códigos centinela 99999
+Coordenadas invertidas,lat; lon,Validación contra rangos aproximados de Medellín,Intercambio solo cuando cada valor encaja en el rango opuesto
