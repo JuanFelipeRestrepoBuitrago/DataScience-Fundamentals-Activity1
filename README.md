@@ -10,8 +10,8 @@
 | Nombre completo | Cédula |
 |---|---:|
 | Juan Felipe Restrepo | 1027740136 |
-| Manuela Castaño | Por confirmar |
-| Juan Esteban García | Por confirmar |
+| Manuela Castaño | 1011510403 |
+| Juan Esteban García | 1020222158 |
 
 ## 1. Resumen ejecutivo
 
