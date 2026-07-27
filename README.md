@@ -3,7 +3,7 @@
 - **Curso:** Fundamentos en Ciencia de Datos — Maestría en Ciencia de Datos y Analítica, EAFIT
 - **Conjunto de datos elegido:** C — Movilidad urbana
 - **Fecha límite de entrega:** lunes 27 de julio de 2026, 23:50
-- **Fecha de entrega:** 25 de julio de 2026
+- **Fecha de entrega:** 26 de julio de 2026
 
 ## Integrantes
 
